@@ -1,3 +1,4 @@
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/KprAwj1n)
 # APCS - Stuyrim
 
@@ -17,6 +18,10 @@ Make a clear list of features that work/dont work
 
 
 ## Adventurer Subclasses
-
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
-
+|Class Name|Guardian|ProgressG|Bard|ProgressB|
+|:-|:-|:-|:-|:-|
+|Stats|Relatively high HP, medium damage|:x:|Relatively low HP and damage|:x:|
+|Resource|Shields, consume to nullify 1 instance of damage, gain 1 after X actions|:x:|Inspiration|:x:|
+|Special Attack|Consume all shields, deal X bonus damage per shield|:x:|Debuff(unsure of what type) the enemy for X turns|:x:|
+|Support(self)|Extra turn for shield gain, heal self + more healing per shield|:x:|Restore X inspiration|:x:|
+|Support(ally)|Give an ally a shield|:x:|Give an ally strength (deal more damage)|:x:|
