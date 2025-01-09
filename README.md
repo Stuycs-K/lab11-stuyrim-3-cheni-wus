@@ -18,9 +18,10 @@ Make a clear list of features that work/dont work
 
 
 ## Adventurer Subclasses
-|Class Name|Guardian|ProgressG|Bard|ProgressB|
+|Class Name|Guardian|Progress|Bard|Progress|
 |:-|:-|:-|:-|:-|
 |Stats|Relatively high HP, medium damage|:x:|Relatively low HP and damage|:x:|
+|Attack||:x:|Restores Special ,dmg|:x:|
 |Resource|Shields, consume to nullify 1 instance of damage, gain 1 after X actions|:x:|Inspiration|:x:|
 |Special Attack|Consume all shields, deal X bonus damage per shield|:x:|Debuff(unsure of what type) the enemy for X turns|:x:|
 |Support(self)|Extra turn for shield gain, heal self + more healing per shield|:x:|Restore X inspiration|:x:|
