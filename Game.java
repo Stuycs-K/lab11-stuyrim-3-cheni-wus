@@ -14,15 +14,17 @@ public class Game{
   public static void drawBackground(){
     for (int col = 0; col < HEIGHT; col++){
       for (int row = 0; row < WIDTH; row++){
-        if (row <= 1 || col == 0 || row >= WIDTH-1 || col == HEIGHT){
-          Text.colorize("", BORDER_COLOR, 7);
+        if (row == 0 || col == 0 || row == WIDTH || col == HEIGHT){
+          System.out.print(Text.colorize(" ", BORDER_COLOR));
+          Text.reset();
         }else{
-          Text.colorize("", BORDER_BACKGROUND, 7);
+          System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
+          Text.reset();
         }
-        System.out.print(".");
       }
       System.out.println();
     }
+    System.out.println();
   }
 
   //Display a line of text starting at
