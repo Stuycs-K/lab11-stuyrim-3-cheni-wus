@@ -135,6 +135,7 @@ public class Game{
     //Clear and initialize
     Text.hideCursor();
     Text.clear();
+    Text.go(0, 0);
 
 
     //Things to attack:
