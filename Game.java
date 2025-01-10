@@ -144,17 +144,17 @@ public class Game{
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Adventurer hero = new CodeWarrior();
-    Adventurer hero2 = new CodeWarrior();
-    Adventurer hero3 = new CodeWarrior();
+    Adventurer hero2 = createRandomAdventurer();
+    Adventurer hero3 = createRandomAdventurer();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    Adventurer enem = new CodeWarrior();
-    Adventurer enem2 = new CodeWarrior();
-    Adventurer enem3 = new CodeWarrior();
+    Adventurer enem = createRandomAdventurer();
+    Adventurer enem2 = createRandomAdventurer();
+    Adventurer enem3 = createRandomAdventurer();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
