@@ -16,12 +16,21 @@ Make a clear list of features that work/dont work
 
 :beetle: This is a bug that affects the game.
 
+### Game Screen and Gameplay
+:question: Program is able to display the borders of the screen.
+:white_check_mark: Program has functions that create text lines and text boxes.
+:x: Program is able to draw a party of adventurers on the screen.
+:white_check_mark: Health of adventurers has its text color adjusted based on value.
+:x: Program is able to take user input and convert them into actions.
+:x: Program can select random actions for enemy adventurers to take.
+:x: Program can cycle through players in a party to allow all of them to take action.
+:x: Program displays a victory or loss screen based on the outcome of a battle.
 
-## Adventurer Subclasses
+### Adventurer Subclasses
 |Class Name|Guardian|Progress|Bard|Progress|
 |:-|:-|:-|:-|:-|
 |Stats|Relatively high HP, medium damage|:x:|Relatively low HP and damage|:x:|
-|Attack||:x:|Restores Special ,dmg|:x:|
+|Attack|damage, count turn|:x:|Restores Special, dmg|:x:|
 |Resource|Shields, consume to nullify 1 instance of damage, gain 1 after X actions|:x:|Inspiration|:x:|
 |Special Attack|Consume all shields, deal X bonus damage per shield|:x:|Debuff(unsure of what type) the enemy for X turns|:x:|
 |Support(self)|Extra turn for shield gain, heal self + more healing per shield|:x:|Restore X inspiration|:x:|
