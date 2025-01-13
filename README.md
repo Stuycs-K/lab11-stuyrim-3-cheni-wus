@@ -42,3 +42,9 @@ Make a clear list of features that work/dont work
 |Special Attack|Consume all shields, deal X bonus damage per shield|:x:|Debuff(unsure of what type) the enemy for X turns|:x:|
 |Support(self)|Extra turn for shield gain, heal self + more healing per shield|:x:|Restore X inspiration|:x:|
 |Support(ally)|Give an ally a shield|:x:|Give an ally strength (deal more damage)|:x:|
+
+|Abilities|Boss Class|Progress|
+|:-|:-|:-|
+|Resource|(no ideas yet)|:x:|
+|Special Attack|(no ideas yet)|:x:|
+|Support|(no ideas yet)|:x:|
