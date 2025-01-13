@@ -95,9 +95,15 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-
+      String text = "";
+      for (int i = 0; i < party.size(); i++){
+        Adventurer a = party.get(i);
+        text += a.getName() + "\n";
+        text += "HP: " + a.getHP() + "\n";
+        text += a.getSpecialName() + ": " + a.getSpecial() + "\n";
+      }
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
+      TextBox(startRow, startRow, startRow, startRow, text);
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
