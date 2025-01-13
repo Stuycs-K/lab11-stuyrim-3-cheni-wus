@@ -46,9 +46,19 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    int length = 0; int heightTrack = 0; // tracks text progress
+    String[] speech = text.split(" "); //splits the text by words
+    for (String word : speech){ // goes through each word in "text" and then draws them
+      drawText(word + " ", row + heightTrack, col + length); // extra space to erase background
+      length += word.length() + 1; 
+      if (length > width){ // wrapping text around the textbox
+        length = 0;
+        heightTrack++;
+        if (heightTrack > height){
+          return;
+        }
+      }
+    }
   }
 
 
