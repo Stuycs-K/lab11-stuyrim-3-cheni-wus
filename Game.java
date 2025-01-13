@@ -47,16 +47,25 @@ public class Game{
   */
   public static void TextBox(int row, int col, int width, int height, String text){
     int length = 0; int heightTrack = 0; // tracks text progress
+    String word = "";
     String[] speech = text.split(" "); //splits the text by words
-    for (String word : speech){ // goes through each word in "text" and then draws them
-      drawText(word + " ", row + heightTrack, col + length); // extra space to erase background
-      length += word.length() + 1; 
-      if (length > width){ // wrapping text around the textbox
+    for (int i = 0; i < speech.length; i++){
+      word = speech[i]; // goes through each word in "text" and then draws them
+      if (length + word.length() > width){
+        for (int x = length; x < width; x++){
+          drawText(" ", row + heightTrack, col + x); // fills in extra spaces each row
+        }
         length = 0;
         heightTrack++;
         if (heightTrack > height){
-          return;
+          break;
         }
+      }
+      drawText(word, row + heightTrack, col + length); 
+      length += word.length();
+      if (length + 1 < width){
+        drawText(" ", row + heightTrack, col + length);
+        length++;
       }
     }
   }
