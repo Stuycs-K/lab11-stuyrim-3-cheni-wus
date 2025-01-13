@@ -100,7 +100,7 @@ public class Game{
         TextBox(startRow, 5, 8, 1, party.get(j).getName());
         startRow++;
       }
-      TextBox(startRow, 15, 20, 4, text);
+      TextBox(startRow, 15, 20, 4, "Sdfsdf");
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
@@ -131,7 +131,7 @@ public class Game{
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
-  public static void drawScreen(List heroes, List enemies){
+  public static void drawScreen(ArrayList<Adventurer> heroes, ArrayList<Adventurer> enemies){
 
     drawBackground();
 
@@ -171,7 +171,7 @@ public class Game{
     //Make an ArrayList of Adventurers and add 1-3 enemies to it.
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
-    ArrayList<Adventurer>enemies = new ArrayList<
+    ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Adventurer enem = createRandomAdventurer();
     enemies.add(enem);
@@ -202,7 +202,7 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    drawScreen();//initial state.
+    drawScreen(party, enemies);//initial state.
 
     //Main loop
 
@@ -288,7 +288,7 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-      drawScreen();
+      drawScreen(party, enemies);
 
 
     }//end of main game loop
