@@ -61,12 +61,18 @@ public class Game{
           break;
         }
       }
-      drawText(word, row + heightTrack, col + length); 
-      length += word.length();
-      if (length + 1 < width){
+      drawText(word, row + heightTrack, col + length);  // draws the text
+      length += word.length(); 
+      if (length + 1 < width){ // adds an extra space if possible to fit it in
         drawText(" ", row + heightTrack, col + length);
         length++;
       }
+    }
+    for (int i = heightTrack; i < height; i++){
+      for (int x = length; x < width; x++){
+        drawText(" ", row + i, col + x);
+      }
+      length = 0;
     }
   }
 
