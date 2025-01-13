@@ -18,12 +18,19 @@ Make a clear list of features that work/dont work
 
 ### Game Screen and Gameplay
 :question: Program is able to display the borders of the screen.
+
 :white_check_mark: Program has functions that create text lines and text boxes.
+
 :x: Program is able to draw a party of adventurers on the screen.
+
 :white_check_mark: Health of adventurers has its text color adjusted based on value.
+
 :x: Program is able to take user input and convert them into actions.
+
 :x: Program can select random actions for enemy adventurers to take.
+
 :x: Program can cycle through players in a party to allow all of them to take action.
+
 :x: Program displays a victory or loss screen based on the outcome of a battle.
 
 ### Adventurer Subclasses
