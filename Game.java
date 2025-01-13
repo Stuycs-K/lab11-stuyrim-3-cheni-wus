@@ -103,7 +103,7 @@ public class Game{
         text += a.getSpecialName() + ": " + a.getSpecial() + "\n";
       }
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      TextBox(startRow, startRow, startRow, startRow, text);
+      TextBox(startRow, 15, 20, 4, text);
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
@@ -175,18 +175,24 @@ public class Game{
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    Adventurer hero = new CodeWarrior();
-    Adventurer hero2 = createRandomAdventurer();
-    Adventurer hero3 = createRandomAdventurer();
+    Adventurer enem = createRandomAdventurer();
+    enemies.add(enem);
+    Adventurer enem2 = createRandomAdventurer();
+    enemies.add(enem2);
+    Adventurer enem3 = createRandomAdventurer();
+    enemies.add(enem3);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    Adventurer enem = createRandomAdventurer();
-    Adventurer enem2 = createRandomAdventurer();
-    Adventurer enem3 = createRandomAdventurer();
+    Adventurer hero = new CodeWarrior();
+    party.add(hero);
+    Adventurer hero2 = createRandomAdventurer();
+    party.add(hero2);
+    Adventurer hero3 = createRandomAdventurer();
+    party.add(hero3);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
