@@ -2,9 +2,9 @@ import java.util.Random;
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
-  private boolean shielded = false;
-  private int strength = 0;
-  private int turnCount = 0;
+  private boolean shielded;
+  private int strength;
+  private int turnCount;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -76,6 +76,9 @@ public abstract class Adventurer{
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.shielded = false;
+    this.strength = 0;
+    this.turnCount = 0;
   }
 
   //toString method
