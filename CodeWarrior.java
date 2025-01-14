@@ -78,9 +78,9 @@ public class CodeWarrior extends Adventurer{
     return "Gives a coffee to "+other+" and restores "
     + other.restoreSpecial(5)+" "+other.getSpecialName();
   }
-  /*Restores 6 special and 1 hp to self.*/
+  /*Restores 6 special and 1 hp to self.*/ // its now  4 health since 1 hp is meaningless
   public String support(){
-    int hp = 1;
+    int hp = 4;
     setHP(getHP()+hp);
     return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
     + getSpecialName()+ " and "+hp+" HP";
