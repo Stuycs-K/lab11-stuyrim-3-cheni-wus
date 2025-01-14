@@ -4,6 +4,7 @@ public abstract class Adventurer{
   private int HP,maxHP;
   private boolean shielded = false;
   private int strength = 0;
+  private int turnCount = 0;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -57,6 +58,8 @@ public abstract class Adventurer{
   public void applyDamage(int amount){
     if (shielded == false){
       this.HP -= amount;
+    }else{
+      shielded = false;
     }
   }
 
@@ -92,8 +95,21 @@ public abstract class Adventurer{
   public int getmaxHP(){
     return maxHP;
   }
+
   public void setmaxHP(int newMax){
     maxHP = newMax;
+  }
+
+  public int getTurnCount(){
+    return turnCount;
+  }
+
+  public int getStrength(){
+    return strength;
+  }
+
+  public boolean isShielded(){
+    return shielded;
   }
 
   //Set Methods
@@ -103,5 +119,17 @@ public abstract class Adventurer{
 
   public void setName(String s){
     this.name = s;
+  }
+
+  public void setStrength(int strength){
+    this.strength = strength;
+  }
+
+  public void setTurns(int turn){
+    this.turnCount = turn;
+  }
+
+  public void setShield(boolean value){
+    this.shielded = value;
   }
 }
