@@ -42,9 +42,12 @@ public class CodeWarrior extends Adventurer{
 
   /*Deal 2-7 damage to opponent, restores 2 caffeine*/
   public String attack(Adventurer other){
-    int damage = (int)(Math.random()*6)+2;
-    other.applyDamage(damage);
+    int damage = ((int)(Math.random()*6)+2) * (1 + getStrength()/10); // strength boosts dmg by 10% per level
+    other.applyDamage(damage); // shields blocking damage is handled by Adventurer
     restoreSpecial(2);
+    if (other.isShielded()){ // special line of text if damage is blocked
+      return this + " attacked "+ other +", but dealt no damage due to their shield. They then take a ship of their coffee.";
+    }
     return this + " attacked "+ other + " and dealt "+ damage +
     " points of damage. They then take a sip of their coffee.";
   }
@@ -55,8 +58,13 @@ public class CodeWarrior extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
+      int damage = ((int)(Math.random()*5+Math.random()*5)+3) * (1 + getStrength()/10);
       other.applyDamage(damage);
+      if (other.isShielded()){
+        return this + " used their "+preferredLanguage+
+        " skills to hack the matrix. "+
+        " This glitched out "+other+", but the damage was blocked by their shield.";
+      }
       return this + " used their "+preferredLanguage+
       " skills to hack the matrix. "+
       " This glitched out "+other+" dealing "+ damage +" points of damage.";
