@@ -4,7 +4,7 @@ public abstract class Adventurer{
   private int HP,maxHP;
   private boolean shielded;
   private int strength;
-  private int turnCount;
+  private int strengthTurns;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -103,8 +103,8 @@ public abstract class Adventurer{
     maxHP = newMax;
   }
 
-  public int getTurnCount(){
-    return turnCount;
+  public int getTurns(){
+    return strengthTurns;
   }
 
   public int getStrength(){
@@ -129,7 +129,7 @@ public abstract class Adventurer{
   }
 
   public void setTurns(int turn){
-    this.turnCount = turn;
+    this.strengthTurns = turn;
   }
 
   public void setShield(boolean value){
