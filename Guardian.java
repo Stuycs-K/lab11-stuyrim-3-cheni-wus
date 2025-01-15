@@ -33,7 +33,7 @@ public class Guardian extends Adventurer{
 
   /*Deals 5-8 damage to a given target, increments turnCount*/
   public String attack(Adventurer other){
-    int damage = (int)(Math.random()*4+5) * (1 * getStrength()/10);
+    int damage = (int)((Math.random()*4+5) * (1 * getStrength()/10));
     setTurns(getTurns()-1); // lose 1 strength turn per turn
     if (other.isShielded()){
       damage = 0;
@@ -58,7 +58,7 @@ public class Guardian extends Adventurer{
   /*Consumes all shields. Deal 1-5 damage, and increase damage by 6 for each shield consumed.*/
   public String specialAttack(Adventurer other){
     if (shieldCount > 0){
-      int damage = ((int)(Math.random()*5 + 1) + (shieldCount * 6)) * (1 * getStrength()/10);
+      int damage = (int)(((Math.random()*5 + 1) + (shieldCount * 6)) * (1 * getStrength()/10));
       setTurns(getTurns()-1); // lose 1 strength turn per turn
       setSpecial(0);
       setShield(false);

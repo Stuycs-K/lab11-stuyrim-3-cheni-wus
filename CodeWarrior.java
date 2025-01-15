@@ -42,7 +42,7 @@ public class CodeWarrior extends Adventurer{
 
   /*Deal 2-7 damage to opponent, restores 2 caffeine*/
   public String attack(Adventurer other){
-    int damage = ((int)(Math.random()*6)+2) * (1 + getStrength()/10); // strength boosts dmg by 10% per level
+    int damage = (int)((Math.random()*6)+2) * (1 + getStrength()/10)); // strength boosts dmg by 10% per level
     setTurns(getTurns()-1); // lose 1 strength turn per turn
     restoreSpecial(2);
     if (other.isShielded()){ // special line of text if damage is blocked
@@ -60,7 +60,7 @@ public class CodeWarrior extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
-      int damage = ((int)(Math.random()*5+Math.random()*5)+3) * (1 + getStrength()/10);
+      int damage = (int)((Math.random()*5+Math.random()*5)+3) * (1 + getStrength()/10);
       setTurns(getTurns()-1);
       if (other.isShielded()){
         other.applyDamage(damage);
