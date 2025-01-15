@@ -78,7 +78,7 @@ public abstract class Adventurer{
     this.maxHP = hp;
     this.shielded = false;
     this.strength = 0;
-    this.turnCount = 0;
+    this.strengthTurns = 0;
   }
 
   //toString method
