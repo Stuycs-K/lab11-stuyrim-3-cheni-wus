@@ -43,11 +43,13 @@ public class CodeWarrior extends Adventurer{
   /*Deal 2-7 damage to opponent, restores 2 caffeine*/
   public String attack(Adventurer other){
     int damage = ((int)(Math.random()*6)+2) * (1 + getStrength()/10); // strength boosts dmg by 10% per level
-    other.applyDamage(damage); // shields blocking damage is handled by Adventurer
+    setTurns(getTurns()-1); // lose 1 strength turn per turn
     restoreSpecial(2);
     if (other.isShielded()){ // special line of text if damage is blocked
+      other.applyDamage(damage); // shields blocking damage is handled by Adventurer
       return this + " attacked "+ other +", but dealt no damage due to their shield. They then take a ship of their coffee.";
     }
+    other.applyDamage(damage); 
     return this + " attacked "+ other + " and dealt "+ damage +
     " points of damage. They then take a sip of their coffee.";
   }
@@ -59,12 +61,14 @@ public class CodeWarrior extends Adventurer{
     if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
       int damage = ((int)(Math.random()*5+Math.random()*5)+3) * (1 + getStrength()/10);
-      other.applyDamage(damage);
+      setTurns(getTurns()-1);
       if (other.isShielded()){
+        other.applyDamage(damage);
         return this + " used their "+preferredLanguage+
         " skills to hack the matrix. "+
         " This glitched out "+other+", but the damage was blocked by their shield.";
       }
+      other.applyDamage(damage);
       return this + " used their "+preferredLanguage+
       " skills to hack the matrix. "+
       " This glitched out "+other+" dealing "+ damage +" points of damage.";
@@ -75,6 +79,7 @@ public class CodeWarrior extends Adventurer{
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
+    setTurns(getTurns()-1);
     return "Gives a coffee to "+other+" and restores "
     + other.restoreSpecial(5)+" "+other.getSpecialName();
   }
@@ -82,6 +87,7 @@ public class CodeWarrior extends Adventurer{
   public String support(){
     int hp = 4;
     setHP(getHP()+hp);
+    setTurns(getTurns()-1);
     return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
     + getSpecialName()+ " and "+hp+" HP";
   }
