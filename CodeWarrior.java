@@ -25,7 +25,7 @@ public class CodeWarrior extends Adventurer{
 
   /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return "caffeine";
+    return "Caffeine";
   }
 
   public int getSpecial(){
@@ -49,7 +49,7 @@ public class CodeWarrior extends Adventurer{
       other.applyDamage(damage); // shields blocking damage is handled by Adventurer
       return this + " attacked "+ other +", but dealt no damage due to their shield. They then take a ship of their coffee.";
     }
-    other.applyDamage(damage); 
+    other.applyDamage(damage);
     return this + " attacked "+ other + " and dealt "+ damage +
     " points of damage. They then take a sip of their coffee.";
   }
