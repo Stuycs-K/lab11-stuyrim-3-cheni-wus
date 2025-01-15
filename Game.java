@@ -96,13 +96,14 @@ public class Game{
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow, int startCol){
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      int width = 15;
+      int width = 15; // set width of each item
       for (int j = 0; j < party.size(); j++){
         Adventurer currentAdv = party.get(j);
-        TextBox(startRow, startCol, width, 1, currentAdv.getName());
-        TextBox(startRow + 1, startCol, width, 1, "HP: "+currentAdv.getHP());
-        TextBox(startRow + 2, startCol, width, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial());
-        startCol += width;
+        TextBox(startRow, startCol, width, 1, currentAdv.getName()); // Name
+        TextBox(startRow + 1, startCol, width, 1, "HP: "+currentAdv.getHP()); // Current HP
+        TextBox(startRow + 2, startCol, width, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial()); // Current Special amount
+        TextBox(startRow + 3, startCol, width, 1, ""); // Empty Line
+        startCol += width; // Shift to the right, go to next Adventurer
       }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
@@ -139,9 +140,11 @@ public class Game{
     drawBackground();
 
     //draw player party
-    drawParty(heroes, 5, 5);
+    TextBox(24,20,11,1,"Hero Party:");
+    drawParty(heroes, 25, 20);
     //draw enemy party
-    drawParty(enemies, 9, 5);
+    TextBox(1,20,12,1,"Enemy Party:");
+    drawParty(enemies, 2, 20);
 
   }
 
@@ -220,7 +223,7 @@ public class Game{
       input = userInput(in);
 
       //example debug statment
-      TextBox(24,50,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+      ;
 
       //display event based on last turn's input
       if(partyTurn){
