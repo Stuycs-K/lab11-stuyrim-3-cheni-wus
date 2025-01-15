@@ -94,13 +94,15 @@ public class Game{
     *Caffeine: 20 Mana: 10   Snark: 1
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
-    public static void drawParty(ArrayList<Adventurer> party,int startRow){
+    public static void drawParty(ArrayList<Adventurer> party,int startRow, int startCol){
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+      int width = 15;
       for (int j = 0; j < party.size(); j++){
         Adventurer currentAdv = party.get(j);
-        TextBox(startRow, 5, 15, 1, currentAdv.getName());
-        startRow++;
-        TextBox(startRow, 5, 15, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial());
+        TextBox(startRow, startCol, width, 1, currentAdv.getName());
+        TextBox(startRow + 1, startCol, width, 1, "HP: "+currentAdv.getHP());
+        TextBox(startRow + 2, startCol, width, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial());
+        startCol += width;
       }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
@@ -137,9 +139,9 @@ public class Game{
     drawBackground();
 
     //draw player party
-    drawParty(heroes, 5);
+    drawParty(heroes, 5, 5);
     //draw enemy party
-    drawParty(enemies, 9);
+    drawParty(enemies, 9, 5);
 
   }
 
