@@ -34,20 +34,20 @@ public class Bard extends Adventurer{
     int damage = (int)((Math.random()*3 + 4) * (1 + getStrength()/10));
     other.applyDamage(damage);
     restoreSpecial(6);
-    return this + " smacks " + other + " with their lute, dealing " + damage + " damage.";
+    return this + " smacks " + other + " with their lute, dealing " + damage + " damage. They have found some inspiration.";
   }
 
-  /**/
+  /* Consume inspiration. Do 6-10 damage, and debuff enemy attack by 20%. */
   public String specialAttack(Adventurer other){
     return "";
   }
 
-  /**/
+  /* Grant strength to self AND ally. */
   public String support(Adventurer other){
     return "";
   }
 
-  /**/
+  /* Restore some inspiration. */
   public String support(){
     return "";
   }
