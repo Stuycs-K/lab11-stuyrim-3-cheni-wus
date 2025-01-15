@@ -3,8 +3,8 @@ public class Bard extends Adventurer{
   // constructors
   public Bard(String name, int health){
     super(name, health);
-    inspiration = 30;
-    maxInspiration = 30;
+    inspiration = 15;
+    maxInspiration = 15;
     setShield(true);
   }
 
@@ -29,18 +29,25 @@ public class Bard extends Adventurer{
     inspiration = n;
   }
   // skills
+  /* Do 4-6 damage, regain some inspiration. */
   public String attack(Adventurer other){
-    return "";
+    int damage = (int)((Math.random()*3 + 4) * (1 + getStrength()/10));
+    other.applyDamage(damage);
+    restoreSpecial(6);
+    return this + " smacks " + other + " with their lute, dealing " + damage " damage.";
   }
 
+  /**/
   public String specialAttack(Adventurer other){
     return "";
   }
 
+  /**/
   public String support(Adventurer other){
     return "";
   }
 
+  /**/
   public String support(){
     return "";
   }
