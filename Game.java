@@ -97,10 +97,11 @@ public class Game{
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       for (int j = 0; j < party.size(); j++){
-        TextBox(startRow, 5, 8, 1, party.get(j).getName());
+        Adventurer currentAdv = party.get(j);
+        TextBox(startRow, 5, 15, 1, currentAdv.getName());
         startRow++;
+        TextBox(startRow, 5, 15, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial());
       }
-      TextBox(startRow, 15, 20, 4, "Sdfsdf");
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
@@ -157,7 +158,7 @@ public class Game{
   public static void quit(){
     Text.reset();
     Text.showCursor();
-    Text.go(32,1);
+    Text.go(32,1);  
   }
 
   public static void run(){
@@ -208,14 +209,16 @@ public class Game{
 
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-    Text.go(80,30);
-    TextBox(30,2,1,78,preprompt);
+    TextBox(29,5,500,78,preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
+      Text.go(30,7);
+      Text.reset();
+      Text.showCursor();
       input = userInput(in);
 
       //example debug statment
-      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+      TextBox(24,50,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
       if(partyTurn){
@@ -290,6 +293,7 @@ public class Game{
 
       //display the updated screen after input has been processed.
       drawScreen(party, enemies);
+      
 
 
     }//end of main game loop
