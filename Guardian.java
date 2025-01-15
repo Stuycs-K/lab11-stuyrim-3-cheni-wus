@@ -39,17 +39,19 @@ public class Guardian extends Adventurer{
     }
     other.applyDamage(damage);
     turnCount++;
+    String str1 = this + " attacked " + other + "and dealt " + damage + "damage.";
     if (turnCount >= 3){
       if (shieldCount <= maxShields){
         restoreSpecial(1);
         turnCount %= 3;
-        return this + " attacked " + other + "and dealt " + damage + "damage. They have gained an additional shield.";
+        return str1 + " They have gained an additional shield.";
       }
       else{
         turnCount = 3;
+        return str1 + " They are at the maximum amount of shields.";
       }
     }
-    return this + " attacked " + other + "and dealt " + damage + "damage. They have " + (3 - turnCount) + "turns left until they gain another shield.";
+    return str1 + "They have " + (3 - turnCount) + "turns left until they gain another shield.";
   }
 
   /*Consumes all shields. Deal 3-4 damage, and increase damage by 6 for each shield consumed.*/
@@ -59,6 +61,7 @@ public class Guardian extends Adventurer{
       setSpecial(0);
       setShield(false);
       other.applyDamage(damage);
+      turnCount++;
       return this + " crashed their shields into " + other + ", dealing " + damage + "damage. " + this + " has lost all their shields.";
     }
     else{
@@ -71,6 +74,7 @@ public class Guardian extends Adventurer{
     if (shieldCount > 0 && !other.isShielded()){
       other.setShield(true);
       shieldCount--;
+      turnCount++;
       if (shieldCount == 0){
         setShield(false);
       }
@@ -84,9 +88,20 @@ public class Guardian extends Adventurer{
     }
   }
 
-  public String support(){
-    return ""; //temp
+  /* Heal 3 HP to self + 4 HP per shield. */
+  public String support(){;
+    int heal = 3 + (4 * shieldCount);
+    setHP(getHP() + heal);
+    String str1 = this + " focused themselves, and regained " + heal + "HP. ";
+    turnCount += 2;
+    if (turnCount >= 3){
+      turnCount %= 3;
+      restoreSpecial(1);
+      return str1 + " They have gained an additional shield.";
+    }
+    return str1 + " They have " + (3 - turnCount) + " turns left until they gain another shield.";
   }
+
   @Override // need to override so that multiple shields work.
   public void applyDamage(int amount){
     setShield(shieldCount > 0);
