@@ -200,14 +200,14 @@ public class Game{
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
-    ArrayList<Adventurer> party = new ArrayList<>();
+    ArrayList<Adventurer> heroes = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Adventurer hero = new CodeWarrior();
-    party.add(hero);
+    heroes.add(hero);
     Adventurer hero2 = createRandomAdventurer();
-    party.add(hero2);
+    heroes.add(hero2);
     Adventurer hero3 = createRandomAdventurer();
-    party.add(hero3);
+    heroes.add(hero3);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
@@ -219,12 +219,12 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    drawScreen(party, enemies);//initial state.
+    drawScreen(heroes, enemies);//initial state.
 
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+    String preprompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/quit";
     TextBox(29,5,500,78,preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
@@ -239,12 +239,12 @@ public class Game{
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          heroes.get(whichPlayer).attack(enemies.get(whichOpponent));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          heroes.get(whichPlayer).specialAttack(heroes.get(whichPlayer));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
@@ -255,16 +255,16 @@ public class Game{
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
-        drawScreen(party, enemies);
+        drawScreen(heroes, enemies);
         //You should decide when you want to re-ask for user input
         //If no errors:
         whichPlayer++;
 
 
-        if(whichPlayer < party.size()){
+        if(whichPlayer < heroes.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+          String prompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/quit";
 
 
         }else{
@@ -302,11 +302,11 @@ public class Game{
         turn++;
         partyTurn=true;
         //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        String prompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/quit";
       }
 
       //display the updated screen after input has been processed.
-      drawScreen(party, enemies);
+      drawScreen(heroes, enemies);
 
 
 
