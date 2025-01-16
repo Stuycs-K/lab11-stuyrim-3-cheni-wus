@@ -152,8 +152,8 @@ public class Game{
     TextBox(24,20,11,1,"Hero Party:");
     drawParty(heroes, 25, 20);
     //draw enemy party
-    TextBox(1,20,12,1,"Enemy Party:");
-    drawParty(enemies, 2, 20);
+    TextBox(2,20,12,1,"Enemy Party:");
+    drawParty(enemies, 3, 20);
 
   }
 
