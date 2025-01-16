@@ -150,9 +150,10 @@ public class Game{
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-
+      Text.go(30,7);
       //show cursor
-
+      Text.reset();
+      Text.showCursor();
       String input = in.nextLine();
 
       //clear the text that was written
@@ -217,9 +218,6 @@ public class Game{
     TextBox(29,5,500,78,preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
-      Text.go(30,7);
-      Text.reset();
-      Text.showCursor();
       input = userInput(in);
 
       //example debug statment
