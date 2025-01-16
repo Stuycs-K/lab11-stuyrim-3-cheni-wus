@@ -62,7 +62,7 @@ public class Game{
         }
       }
       drawText(word, row + heightTrack, col + length);  // draws the text
-      length += word.length(); 
+      length += word.length();
       if (length + 1 < width){ // adds an extra space if possible to fit it in
         drawText(" ", row + heightTrack, col + length);
         length++;
@@ -82,7 +82,16 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      int select = (int)Math.random()*3;
+      if (select == 0){
+        return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      }
+      if (select == 1){
+        return new Guardian("John" + (int)(Math.random()*100));
+      }
+      else{
+        return new Bard("Kevin" + (int)(Math.random()*100));
+      }
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -163,7 +172,7 @@ public class Game{
   public static void quit(){
     Text.reset();
     Text.showCursor();
-    Text.go(32,1);  
+    Text.go(32,1);
   }
 
   public static void run(){
@@ -298,7 +307,7 @@ public class Game{
 
       //display the updated screen after input has been processed.
       drawScreen(party, enemies);
-      
+
 
 
     }//end of main game loop
