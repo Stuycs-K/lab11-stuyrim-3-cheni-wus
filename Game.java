@@ -12,6 +12,7 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
+    Text.go(0,0);
     for (int col = 0; col < HEIGHT; col++){
       for (int row = 0; row < WIDTH; row++){
         if (row == 0 || col == 0 || row == WIDTH || col == HEIGHT){
@@ -254,6 +255,7 @@ public class Game{
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
+        drawScreen(party, enemies);
         //You should decide when you want to re-ask for user input
         //If no errors:
         whichPlayer++;
