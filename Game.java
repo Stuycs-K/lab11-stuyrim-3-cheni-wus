@@ -106,7 +106,7 @@ public class Game{
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow, int startCol){
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      int width = 15; // set width of each item
+      int width = 16; // set width of each item
       for (int j = 0; j < party.size(); j++){
         Adventurer currentAdv = party.get(j);
         TextBox(startRow, startCol, width, 1, currentAdv.getName()); // Name
