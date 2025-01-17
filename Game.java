@@ -110,7 +110,7 @@ public class Game{
       for (int j = 0; j < party.size(); j++){
         Adventurer currentAdv = party.get(j);
         TextBox(startRow, startCol, width, 1, currentAdv.getName()); // Name
-        TextBox(startRow + 1, startCol, width, 1, "HP: "+currentAdv.getHP()); // Current HP
+        TextBox(startRow + 1, startCol, width, 1, "HP: "+colorByPercent(currentAdv.getHP(), currentAdv.getmaxHP())); // Current HP
         TextBox(startRow + 2, startCol, width, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial()); // Current Special amount
         TextBox(startRow + 3, startCol, width, 1, ""); // Empty Line
         startCol += width; // Shift to the right, go to next Adventurer
