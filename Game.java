@@ -229,6 +229,7 @@ public class Game{
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
       input = userInput(in);
+      int target = input.charAt(input.length()-1) - '0';
 
       //example debug statment
       ;
@@ -237,19 +238,24 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
+        if(input.startsWith("attack") || input.startsWith("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          heroes.get(whichPlayer).attack(enemies.get(whichOpponent));
+          heroes.get(whichPlayer).attack(enemies.get(target));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if(input.startsWith("special") || input.startsWith("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          heroes.get(whichPlayer).specialAttack(heroes.get(whichPlayer));
+          heroes.get(whichPlayer).specialAttack(enemies.get(target));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
+          if (target == whichPlayer){
+            heroes.get(whichPlayer).support();
+          }else{
+            heroes.get(whichPlayer).support(heroes.get(target));
+          }
           //"support 0" or "su 0" or "su 2" etc.
-          //assume the value that follows su  is an integer.
+          //assume the value that follows su is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
