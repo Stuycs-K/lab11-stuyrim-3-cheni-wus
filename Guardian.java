@@ -110,6 +110,9 @@ public class Guardian extends Adventurer{
   public void applyDamage(int amount){
     setShield(shieldCount > 0);
     super.applyDamage(amount);
+    if (shieldCount > 0){
+      shieldCount--;
+    }
     setShield(shieldCount > 0);
   }
 }
