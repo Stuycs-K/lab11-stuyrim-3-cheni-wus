@@ -1,4 +1,4 @@
-public class Text{
+  public class Text{
   /*Base colors*/
   public static final int BLACK = 30;
   public static final int RED = 31;

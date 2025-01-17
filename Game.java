@@ -83,19 +83,16 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100)); 
-      // TESTING
-      
-      // int select = (int)(Math.random()*3);
-      // if (select == 0){
-      //   return new CodeWarrior("Bob"+(int)(Math.random()*100));
-      // }
-      // if (select == 1){
-      //   return new Guardian("John" + (int)(Math.random()*100));
-      // }
-      // else{
-      //   return new Bard("Kevin" + (int)(Math.random()*100));
-      // }
+      int select = (int)(Math.random()*3);
+      if (select == 0){
+        return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      }
+      if (select == 1){
+        return new Guardian("John" + (int)(Math.random()*100));
+      }
+      else{
+        return new Bard("Kevin" + (int)(Math.random()*100));
+      }
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -207,9 +204,9 @@ public class Game{
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Adventurer hero = new CodeWarrior();
     heroes.add(hero);
-    Adventurer hero2 = createRandomAdventurer();
+    Adventurer hero2 = new Guardian();
     heroes.add(hero2);
-    Adventurer hero3 = createRandomAdventurer();
+    Adventurer hero3 = new Bard();
     heroes.add(hero3);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
