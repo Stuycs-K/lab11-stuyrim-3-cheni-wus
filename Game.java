@@ -110,7 +110,8 @@ public class Game{
       for (int j = 0; j < party.size(); j++){
         Adventurer currentAdv = party.get(j);
         TextBox(startRow, startCol, width, 1, currentAdv.getName()); // Name
-        TextBox(startRow + 1, startCol, width, 1, "HP: "+colorByPercent(currentAdv.getHP(), currentAdv.getmaxHP())); // Current HP
+        TextBox(startRow + 1, startCol, width, 1, " "); // consistency. i have no clue why but without this line it does not run on my terminal
+        TextBox(startRow + 1, startCol, width + 2, 1, "HP: "+colorByPercent(currentAdv.getHP(), currentAdv.getmaxHP())); // Current HP
         TextBox(startRow + 2, startCol, width, 1, currentAdv.getSpecialName() + ": "+ currentAdv.getSpecial()); // Current Special amount
         TextBox(startRow + 3, startCol, width, 1, ""); // Empty Line
         startCol += width; // Shift to the right, go to next Adventurer
@@ -224,7 +225,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/quit";
+    String preprompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/support/quit.";
     TextBox(29,5,500,78,preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
@@ -240,7 +241,7 @@ public class Game{
         //Process user input for the last Adventurer:
         if(input.startsWith("attack") || input.startsWith("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          heroes.get(whichPlayer).attack(enemies.get(target));
+         TextBox(30, 5, 500, 78, heroes.get(whichPlayer).attack(enemies.get(target)));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("special") || input.startsWith("sp")){
@@ -249,30 +250,32 @@ public class Game{
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
+          //"support 0" or "su 0" or "su 2" etc.
+          //assume the value that follows su is an integer.
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           if (target == whichPlayer){
             heroes.get(whichPlayer).support();
           }else{
             heroes.get(whichPlayer).support(heroes.get(target));
-          }
-          //"support 0" or "su 0" or "su 2" etc.
-          //assume the value that follows su is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          }
         }
 
-        drawScreen(heroes, enemies);
+        
         //You should decide when you want to re-ask for user input
         //If no errors:
-        whichPlayer++;
-
-
+        String progress = "Press enter to progress to the next turn. ";
+        TextBox(31, 5, 500, 78  , progress);
+        if (in.hasNextLine()){
+          whichPlayer++;
+          drawScreen(heroes, enemies);
+        }
         if(whichPlayer < heroes.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/quit";
-
-
+          String prompt = "Enter command for "+heroes.get(whichPlayer)+": attack/special/support/quit";
+          TextBox(29,5,500,78,prompt);
+          Text.go(30, 5);
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
